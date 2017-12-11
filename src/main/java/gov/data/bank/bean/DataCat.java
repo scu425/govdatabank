@@ -7,7 +7,7 @@ import java.util.Date;
  * Created by zhc on 2017/11/20
  */
 public class DataCat implements Serializable{
-    private Integer catId;
+    private Integer id;
     private String area;
     private String dataAbstract;
     private String keyword;
@@ -19,12 +19,28 @@ public class DataCat implements Serializable{
     private String maintenance;
     private String securityLevel;
 
-    public Integer getCatId() {
-        return catId;
+    public DataCat() {
     }
 
-    public void setCatId(Integer catId) {
-        this.catId = catId;
+    public DataCat(String area, String dataAbstract, String keyword, String topic, String industry, String updateFreq, Date updateTime, String provider, String maintenance, String securityLevel) {
+        this.area = area;
+        this.dataAbstract = dataAbstract;
+        this.keyword = keyword;
+        this.topic = topic;
+        this.industry = industry;
+        this.updateFreq = updateFreq;
+        this.updateTime = updateTime;
+        this.provider = provider;
+        this.maintenance = maintenance;
+        this.securityLevel = securityLevel;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getArea() {
@@ -105,6 +121,23 @@ public class DataCat implements Serializable{
 
     public void setSecurityLevel(String securityLevel) {
         this.securityLevel = securityLevel;
+    }
+
+    @Override
+    public String toString() {
+        return "DataCat{" +
+                "id=" + id +
+                ", area='" + area + '\'' +
+                ", dataAbstract='" + dataAbstract + '\'' +
+                ", keyword='" + keyword + '\'' +
+                ", topic='" + topic + '\'' +
+                ", industry='" + industry + '\'' +
+                ", updateFreq='" + updateFreq + '\'' +
+                ", updateTime=" + updateTime +
+                ", provider='" + provider + '\'' +
+                ", maintenance='" + maintenance + '\'' +
+                ", securityLevel='" + securityLevel + '\'' +
+                '}';
     }
 }
  /*   DROP TABLE IF EXISTS `datacat`;

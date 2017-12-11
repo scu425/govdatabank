@@ -7,19 +7,30 @@ import java.util.Date;
  * Created by zhc on 2017/11/20
  */
 public class DataInfo implements Serializable {
-    private String dataId;
+    private Integer id;
     private String dataName;
     private Date dataTime;
     private Double price;
     private Integer datacatId;
     private String filePath;
 
-    public String getDataId() {
-        return dataId;
+    public DataInfo() {
     }
 
-    public void setDataId(String dataId) {
-        this.dataId = dataId;
+    public DataInfo(String dataName, Date dataTime, Double price, Integer datacatId, String filePath) {
+        this.dataName = dataName;
+        this.dataTime = dataTime;
+        this.price = price;
+        this.datacatId = datacatId;
+        this.filePath = filePath;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getDataName() {
@@ -60,6 +71,18 @@ public class DataInfo implements Serializable {
 
     public void setFilePath(String filePath) {
         this.filePath = filePath;
+    }
+
+    @Override
+    public String toString() {
+        return "DataInfo{" +
+                "id='" + id + '\'' +
+                ", dataName='" + dataName + '\'' +
+                ", dataTime=" + dataTime +
+                ", price=" + price +
+                ", datacatId=" + datacatId +
+                ", filePath='" + filePath + '\'' +
+                '}';
     }
 }
    /* DROP TABLE IF EXISTS `datainfo`;
