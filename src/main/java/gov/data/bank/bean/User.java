@@ -6,19 +6,30 @@ import java.io.Serializable;
  * Created by zhc on 2017/11/20
  */
 public class User implements Serializable {
-    private Integer userId;
+    private Integer id;
     private String username;
     private String password;
     private String nickname;
-    private String phone;
+    private Long phone;
     private String email;
 
-    public Integer getUserId() {
-        return userId;
+    public User() {
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public User(String username, String password, String nickname, Long phone, String email) {
+        this.username = username;
+        this.password = password;
+        this.nickname = nickname;
+        this.phone = phone;
+        this.email = email;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -45,11 +56,11 @@ public class User implements Serializable {
         this.nickname = nickname;
     }
 
-    public String getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
@@ -60,14 +71,16 @@ public class User implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", phone='" + phone + '\'' +
+                ", email='" + email + '\'' +
+                '}';
+    }
 }
-    /*DROP TABLE IF EXISTS `user`;
-        CREATE TABLE `user` (
-        `user_id` int(10) NOT NULL AUTO_INCREMENT,
-        `username` varchar(50) NOT NULL,
-        `password` varchar(50) NOT NULL,
-        `nickname` varchar(50) NOT NULL,
-        `phone` varchar(20) NOT NULL,
-        `email` varchar(50) DEFAULT NULL,
-        PRIMARY KEY (`user_id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;*/

@@ -20,7 +20,7 @@ public class DataInfoDAOTest {
     DataInfoDAO dataInfoDAO;
     @Test
     public void insert() throws Exception {
-        DataInfo dataInfo=new DataInfo("贵阳高中分布",new Date(),1.22,1,"education");
+        DataInfo dataInfo=new DataInfo("贵阳初中分布",new Date(),1.22,1,"education");
         dataInfoDAO.insert(dataInfo);
     }
 

@@ -6,17 +6,26 @@ import java.io.Serializable;
  * Created by zhc on 2017/11/20
  */
 public class Provider implements Serializable {
-    private Integer providerId;
+    private Integer id;
     private String providerName;
     private String loginname;
     private String password;
 
-    public Integer getProviderId() {
-        return providerId;
+    public Provider() {
     }
 
-    public void setProviderId(Integer providerId) {
-        this.providerId = providerId;
+    public Provider( String providerName, String loginname, String password) {
+        this.providerName = providerName;
+        this.loginname = loginname;
+        this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getProviderName() {
@@ -42,13 +51,14 @@ public class Provider implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "ProviderService{" +
+                "id=" + id +
+                ", providerName='" + providerName + '\'' +
+                ", loginname='" + loginname + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
-/*
-    DROP TABLE IF EXISTS `provider`;
-        CREATE TABLE `provider` (
-        `provider_id` int(10) NOT NULL AUTO_INCREMENT,
-        `provider_name` varchar(50) NOT NULL,
-        `loginname` varchar(50) NOT NULL,
-        `password` varchar(50) NOT NULL,
-        PRIMARY KEY (`provider_id`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;*/

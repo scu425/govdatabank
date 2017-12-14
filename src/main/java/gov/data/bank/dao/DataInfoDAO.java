@@ -26,6 +26,14 @@ public interface DataInfoDAO {
     @UpdateProvider(type = DataInfoDynaSqlProvider.class,method = "updateWithParams")
     void update(DataInfo dataInfo);
 
+    //根据id查询
+    @Select("select * from "+DATAINFO+" where id=#{id}")
+    DataInfo selectById(Integer id);
+
+    //根据dataId查询
+    @Select("select * from "+DATAINFO+" where datacat_id=#{datacatId}")
+    List<DataInfo> selectByDataId(Integer dataId);
+
     //动态查询
     @SelectProvider(type = DataInfoDynaSqlProvider.class,method = "selectWithParams")
     List<DataInfo> selectWithParams(DataInfo dataInfo);

@@ -6,16 +6,24 @@ import java.io.Serializable;
  * Created by zhc on 2017/11/20
  */
 public class Manager implements Serializable {
-    private Integer managerId;
+    private Integer id;
     private String loginname;
     private String password;
 
-    public Integer getManagerId() {
-        return managerId;
+    public Manager() {
     }
 
-    public void setManagerId(Integer managerId) {
-        this.managerId = managerId;
+    public Manager(String loginname, String password) {
+        this.loginname = loginname;
+        this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getLoginname() {
@@ -33,11 +41,13 @@ public class Manager implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    @Override
+    public String toString() {
+        return "Manager{" +
+                "id=" + id +
+                ", loginname='" + loginname + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
 }
-  /*  DROP TABLE IF EXISTS `manager`;
-        CREATE TABLE `manager` (
-        `managerid` int(10) NOT NULL AUTO_INCREMENT,
-        `loginname` varchar(50) NOT NULL,
-        `password` varchar(50) NOT NULL,
-        PRIMARY KEY (`managerid`)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8;*/

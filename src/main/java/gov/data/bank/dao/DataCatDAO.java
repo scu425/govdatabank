@@ -3,10 +3,7 @@ package gov.data.bank.dao;
 import com.sun.org.apache.bcel.internal.generic.DCMPG;
 import gov.data.bank.bean.DataCat;
 import gov.data.bank.dao.provider.DataCatDynaSqlProvider;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 
 import javax.xml.crypto.Data;
 import java.util.List;
@@ -26,6 +23,9 @@ public interface DataCatDAO {
 
     @UpdateProvider(type = DataCatDynaSqlProvider.class,method = "updateWithParams")
     void update(DataCat dataCat);
+    //根据id查询分类
+    @Select("select * from "+DATACAT+" where id=#{id}")
+    DataCat selectById(Integer id);
 
     @SelectProvider(type = DataCatDynaSqlProvider.class,method = "selectWithParams")
     List<DataCat> selectWithParams(DataCat dataCat);

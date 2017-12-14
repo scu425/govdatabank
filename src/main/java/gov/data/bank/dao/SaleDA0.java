@@ -1,20 +1,15 @@
 package gov.data.bank.dao;
 
-import gov.data.bank.bean.DataCat;
 import gov.data.bank.bean.Sale;
-import gov.data.bank.dao.provider.DataCatDynaSqlProvider;
 import gov.data.bank.dao.provider.SaleDynaSqlProvider;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.InsertProvider;
-import org.apache.ibatis.annotations.SelectProvider;
-import org.apache.ibatis.annotations.UpdateProvider;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
 import static gov.data.bank.constant.GovDataBankConstant.SALE;
 
 /**
- * Created by zhc on 2017/11/20
+ * Created by qsl on 2017/11/20
  */
 public interface SaleDA0 {
 
@@ -26,6 +21,10 @@ public interface SaleDA0 {
 
     @UpdateProvider(type = SaleDynaSqlProvider.class,method = "updateWithParams")
     void update(Sale sale);
+
+    //根据id查询
+    @Select("select * from "+SALE+" where id=#{id}")
+    Sale selectById(Integer id);
 
     @SelectProvider(type = SaleDynaSqlProvider.class,method = "selectWithParams")
     List<Sale> selectWithParams(Sale sale);

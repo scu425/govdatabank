@@ -6,7 +6,7 @@ package gov.data.bank.constant;
 public class GovDataBankConstant {
     public static final String DATACAT = "datacat";
     public static final String DATAINFO = "datainfo";
-    public static final String MANAGE = "manage";
+    public static final String MANAGER = "manager";
     public static final String PROVIDER = "provider";
     public static final String SALE = "sale";
     public static final String USER = "user";
